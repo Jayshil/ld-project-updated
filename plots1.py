@@ -108,7 +108,7 @@ rmin_t = np.min(rprst)
 print('#-----------------For a/R*-----------------------')
 #------------------------------------------------
 
-a_j, a_jp, a_jn = np.loadtxt(path1 + '/Results/comp_a_r_p/aste.dat', usecols = (1,2,3), unpack = True)
+a_j, a_jp, a_jn = np.loadtxt(path1 + '/Data/results.dat', usecols = (22,23,24), unpack = True)
 
 amax_j = np.max(a_j)
 amin_j = np.min(a_j)
@@ -176,7 +176,7 @@ plt.close(fig_a)
 print('#-----------------For Period---------------------')
 #------------------------------------------------
 
-p_j, p_jp, p_jn = np.loadtxt(path1 + '/Results/comp_a_r_p/period.dat', usecols = (1,2,3), unpack = True)
+p_j, p_jp, p_jn = np.loadtxt(path1 + '/Data/results.dat', usecols = (28,29,30), unpack = True)
 
 pmax_j = np.max(p_j)
 pmin_j = np.min(p_j)
@@ -245,7 +245,7 @@ plt.close(fig_p)
 print('#-----------------For Rp/R*----------------------')
 #------------------------------------------------
 
-r_j, r_jp, r_jn = np.loadtxt(path1 + '/Results/comp_a_r_p/rprste.dat', usecols = (1,2,3), unpack = True)
+r_j, r_jp, r_jn = np.loadtxt(path1 + '/Data/results.dat', usecols = (4,5,6), unpack = True)
 
 rmax_j = np.max(r_j)
 rmin_j = np.min(r_j)
@@ -327,7 +327,7 @@ for i in range(len(tc_t1)):
 	tc_t = np.hstack((tc_t,t3))
 	tc_te = np.hstack((tc_te,t4))
 
-tc_j1, tc_jp1, tc_jn1 = np.loadtxt(path1 + '/Results/comp_a_r_p/tc.dat', usecols = (1,2,3), unpack = True)
+tc_j1, tc_jp1, tc_jn1 = np.loadtxt(path1 + '/Data/results.dat', usecols = (25,26,27), unpack = True)
 
 tc_j = np.array([])
 tc_jp = np.array([])
@@ -412,7 +412,7 @@ print('-------------------------------------------------------------------------
 print('-------------------------Plots to compare LDCs---------------------------')
 print('-------------------------------------------------------------------------')
 
-u1_j, u1_jp, u1_jn, u2_j, u2_jp, u2_jn = np.loadtxt(path1 + '/Results/cal_us_and_evidance/cal_u1_u2.dat', usecols = (1,2,3,4,5,6), unpack = True)
+u1_j, u1_jp, u1_jn, u2_j, u2_jp, u2_jn = np.loadtxt(path1 + '/Data/results.dat', usecols = (16,17,18,19,20,21), unpack = True)
 
 u1max_j = np.max(u1_j)
 u1min_j = np.min(u1_j)
