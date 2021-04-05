@@ -24,7 +24,7 @@ path1 = os.getcwd()
 name = np.loadtxt('data_new.dat', dtype = str, usecols = 0, unpack = True)
 teff, lg, mh, p, pperr, tc, aste, asteperr, rprst, rprstperr, tce =\
 	 np.loadtxt('data_new.dat', usecols = (9,11,10,1,2,3,5,6,7,8,4), unpack = True)
-vturb = np.ones(len(teff2))*2.0
+vturb = np.ones(len(teff))*2.0
 
 pnerr = np.copy(pperr)
 astenerr = np.copy(asteperr)
