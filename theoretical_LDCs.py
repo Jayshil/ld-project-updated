@@ -76,7 +76,7 @@ f22.write('#Name\t\tu1\t\tu2\n')
 
 name2 = np.loadtxt('data_new.dat', dtype = str, usecols = 0, unpack = True)
 teff2, lg2, mh2, p2, pperr2, tc2, aste2, asteperr2, rprst2, rprstperr2, tce2 =\
-	 np.loadtxt('data.dat', usecols = (9,11,10,1,2,3,5,6,7,8,4), unpack = True)
+	 np.loadtxt('data_new.dat', usecols = (9,11,10,1,2,3,5,6,7,8,4), unpack = True)
 vturb2 = np.ones(len(teff2))*2.0
 
 #Name	Per	Per_err	Tc	Tc_err	a/R*	a/R*_err	Rp/R*	Rp/R*_err	Teff	MH	logg
