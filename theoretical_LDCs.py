@@ -96,7 +96,7 @@ for i in range(len(name2)):
 	fout.write(name2[i] + '\t' + str(teff2[i]) + '\t' + str(lg2[i]) + '\t' + str(mh2[i]) + '\t' + str(vturb2[i])\
 		 + '\ttess_res_fun.txt\tA100,P100\t-1\t-1')
 	fout.close()
-	utl.move_file(path2 + '/', name2[i] + '.dat', path2 + '/limb-darkening-master/input_files/', name2[i] + '.dat')
+	utl.move_file(path1 + '/', name2[i] + '.dat', path2 + '/limb-darkening-master/input_files/', name2[i] + '.dat')
 	#--------------------------------------
 	#----Starting Limb-Darkening Code------
 	#--------------------------------------
