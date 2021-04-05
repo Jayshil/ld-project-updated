@@ -22,8 +22,13 @@ path1 = os.getcwd()
 #---------------------------------------------------------------------------------------------
 
 name = np.loadtxt('data_new.dat', dtype = str, usecols = 0, unpack = True)
-teff, lg, mh, vturb, p, pperr, pnerr, tc, aste, asteperr, astenerr, ecc, ome, rprst, rprstperr, rprstnerr, tce =\
-	 np.loadtxt('data2.dat', usecols = (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17), unpack = True)
+teff, lg, mh, p, pperr, tc, aste, asteperr, rprst, rprstperr, tce =\
+	 np.loadtxt('data_new.dat', usecols = (9,11,10,1,2,3,5,6,7,8,4), unpack = True)
+vturb = np.ones(len(teff2))*2.0
+
+pnerr = np.copy(pperr)
+astenerr = np.copy(asteperr)
+rprstnerr = np.copy(rprstperr)
 
 #--------------------------------------------------------------------------------------------------
 #-------------------------Now its time to plot some amazing results--------------------------------
