@@ -4,7 +4,6 @@ from matplotlib import gridspec as gd
 import os
 import pickle as pc
 import utils1 as utl
-from exotoolbox import utils
 from astropy.io import fits
 from astroquery.mast import Observations as obs
 from scipy import interpolate as inp
