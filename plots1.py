@@ -1059,7 +1059,7 @@ med8 = np.median(mean8)
 std8 = np.std(mean8)
 
 f101.write('\t\t\t\tu1\t\t\t\tu2\n')
-f101.write('Claret(2017), PHOENIX - s method\t\t' + str(med1) + ' +/- ' + str(std1) + '\t\t' + str(med2) + ' +/- ' + str(std2) + '\n')
+f101.write('Claret(2017), PHOENIX - q method\t\t' + str(med1) + ' +/- ' + str(std1) + '\t\t' + str(med2) + ' +/- ' + str(std2) + '\n')
 f101.write('Claret(2017), PHOENIX - r method\t\t' + str(med3r) + ' +/- ' + str(std3r) + '\t\t' + str(med4r) + ' +/- ' + str(std4r) + '\n')
 f101.write('Claret(2017), ATLAS\t\t' + str(med3) + ' +/- ' + str(std3) + '\t\t' + str(med4) + ' +/- ' + str(std4) + '\n')
 f101.write('EJ(2015), PHOENIX\t\t' + str(med5) + ' +/- ' + str(std5) + '\t\t' + str(med6) + ' +/- ' + str(std6) + '\n')
