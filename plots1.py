@@ -160,10 +160,10 @@ plt.subplots_adjust(hspace = 0.2)
 plt.savefig(path1 + '/Results/comp_a_r_p/a.pdf')
 
 diff_a1 = np.abs(diff_a)
-erra1 = 3*(asteperr + a_jp)
+erra1 = 5*(asteperr + a_jp)
 
 fa = open(path1 + '/Results/comp_a_r_p/off_a.dat', 'w')
-fa.write('#These are the systems which have residulas larger than 3-sigma\n')
+fa.write('#These are the systems which have residulas larger than 5-sigma\n')
 
 for i in range(len(diff_a)):
 	if diff_a1[i] > erra1[i]:
@@ -229,10 +229,10 @@ plt.subplots_adjust(hspace = 0.2)
 plt.savefig(path1 + '/Results/comp_a_r_p/period.pdf')
 
 diff_p1 = np.abs(diff_p)
-errp1 = 3*(pperr + p_jp)*86400
+errp1 = 5*(pperr + p_jp)*86400
 
 fp = open(path1 + '/Results/comp_a_r_p/off_p.dat', 'w')
-fp.write('These are the systems which have residulas larger than 3-sigma\n')
+fp.write('These are the systems which have residulas larger than 5-sigma\n')
 
 for i in range(len(diff_p)):
 	if diff_p1[i] > errp1[i]:
@@ -299,10 +299,10 @@ plt.subplots_adjust(hspace = 0.2)
 plt.savefig(path1 + '/Results/comp_a_r_p/r.pdf')
 
 diff_r1 = np.abs(diff_r)
-errr1 = 3*(rprstperr + r_jp)
+errr1 = 5*(rprstperr + r_jp)
 
 fr = open(path1 + '/Results/comp_a_r_p/off_r.dat', 'w')
-fr.write('These are the systems which have residulas larger than 3-sigma\n')
+fr.write('These are the systems which have residulas larger than 5-sigma\n')
 
 for i in range(len(diff_r)):
 	if diff_r1[i] > errr1[i]:
@@ -396,10 +396,10 @@ plt.savefig(path1 + '/Results/comp_a_r_p/tc.pdf')
 plt.close(fig_t)
 
 diff_t1 = np.abs(diff_t)
-errt1 = 3*(tc_te + tc_jp)*1440
+errt1 = 5*(tc_te + tc_jp)*1440
 
 ft = open(path1 + '/Results/comp_a_r_p/off_t.dat', 'w')
-ft.write('These are the systems which have residulas larger than 3-sigma\n')
+ft.write('These are the systems which have residulas larger than 5-sigma\n')
 
 for i in range(len(diff_t)):
 	if diff_t1[i] > errt1[i]:
