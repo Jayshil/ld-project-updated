@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib import gridspec as gd
 import os
 import pickle as pc
-import utils1 as utl
+#import utils1 as utl
 from astropy.io import fits
 from astroquery.mast import Observations as obs
 from scipy import interpolate as inp
@@ -23,9 +23,9 @@ table3 = open(path1 + '/Tables/planets.dat','w')
 #--------------------------Taking Data from the data file-------------------------------------
 #---------------------------------------------------------------------------------------------
 
-name = np.loadtxt(path1 + 'data_new.dat', dtype = str, usecols = 0, unpack = True)
+name = np.loadtxt(path1 + '/data_new.dat', dtype = str, usecols = 0, unpack = True)
 teff, lg, mh, p, pperr, pnerr, tc, aste, asteperr, astenerr, rprst, rprstperr, rprstnerr, tce1 = \
-    np.loadtxt('data2.dat', usecols = (9, 10, 11, 1, 2, 2, 3, 5, 6, 6, 7, 8, 8, 4), unpack = True)
+    np.loadtxt(path1 + '/data_new.dat', usecols = (9, 10, 11, 1, 2, 2, 3, 5, 6, 6, 7, 8, 8, 4), unpack = True)
 
 #cite = np.loadtxt('citations', usecols=1, dtype=str, unpack=True)
 
@@ -38,11 +38,11 @@ u1_code_pho, u2_code_pho = np.loadtxt(path1 + '/Phoenix/code_limiting_LDC_pho.da
 u1_cla_pho, u2_cla_pho = np.loadtxt(path1 + '/Phoenix/claret_limiting_LDC_pho.dat', usecols = (1,2), unpack = True)
 u1_cla_pho_r, u2_cla_pho_r = np.loadtxt(path1 + '/Phoenix/claret_limiting_LDC_pho_r.dat', usecols = (1,2), unpack = True)
 
-u1, u1p, u1n, u2, u2p, u2n = np.loadtxt(path1 + '/Results/cal_us_and_evidance/cal_u1_u2.dat', usecols = (1,2,3,4,5,6), unpack=True)
+u1, u1p, u1n, u2, u2p, u2n = np.loadtxt(path1 + '/Data/results.dat', usecols = (16,17,18,19,20,21), unpack = True)
 
 re, reep, reen = np.loadtxt(path1 + '/Data/results.dat', usecols = (4,5,6), unpack = True)
 ae, aeep, aeen = np.loadtxt(path1 + '/Data/results.dat', usecols = (22,23,24), unpack = True)
-tce, tcep, tcen = np.loadtxt(path1 + '/Results/comp_a_r_p/to_the.dat', usecols = (1,2), unpack = True)
+tce, tcep, tcen = np.loadtxt(path1 + '/Results/comp_a_r_p/to_the.dat', usecols = (1,2,2), unpack = True)
 
 #---------------------------------------------------------------------------------------------
 #------------------------ Starting Iteration to calculate things------------------------------
