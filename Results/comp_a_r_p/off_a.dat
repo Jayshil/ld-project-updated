@@ -1,3 +1,9 @@
-#These are the systems which have residulas larger than 5-sigma
+#These are the systems which have residulas larger than 3-sigma
 LTT9779b	7.62+-0.3	3.877+-0.09
 XO-3b	7.09+-0.24	4.95+-0.18
+HAT-P-2b	9.04+-0.19	10.28+-0.12
+HATS-45b	11.69+-0.45	9.02+-0.39
+K2-237b	6.17+-0.13	5.503+-0.015
+XO-6b	8.168+-0.073	9.08+-0.17
+HATS-28b	12.72+-0.49	9.63+-0.42
+TOI-157b	6.297+-0.093	5.785+-0.066
