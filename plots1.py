@@ -75,7 +75,7 @@ ax_histy.tick_params(direction='in', labelleft=False)
 
 # the scatter plot:
 ax_scatter.grid()
-ax_scatter.scatter(teff, lg, marker='o', c='royalblue')
+ax_scatter.scatter(teff, lg, marker='.', c='royalblue')
 ax_scatter.set_xlabel('Effective Temperature of stellar host (in K)')
 ax_scatter.set_ylabel('Surface Gravity of stellar host (log (g))')
 
