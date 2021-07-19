@@ -1439,7 +1439,7 @@ if 'quadratic' in best_bic_u1_co_a:
 plt.plot(x, y, 'k--')
 plt.grid()
 plt.legend(loc='best')
-plt.ylabel(r'Residuals in $u_1$ - Espinoza \& Jordan LDCs')
+plt.ylabel(r'Residuals in $u_1$ Espinoza \& Jordan LDCs')
 plt.xlabel('Effective Temperature')
 plt.savefig(path1 + '/Results/variation_with_temp/u1_code_te.pdf')
 plt.close(fig5)
