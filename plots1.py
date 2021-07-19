@@ -491,7 +491,7 @@ ax_u1_c_p.plot(x1u1_c_p, y1u1_c_p, 'k--')
 ax_u1_c_p.grid()
 
 ax_u1_c_p.set_xlim([xlo, xup])
-ax_u1_c_p.set_ylim([xlo, xup])
+ax_u1_c_p.set_ylim([-0.15, 0.65])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_1$ (Theoretical)')
@@ -563,7 +563,7 @@ ax_u2_c_p.plot(x1u2_c_p, y1u2_c_p, 'k--')
 ax_u2_c_p.grid()
 
 ax_u2_c_p.set_xlim([xlo, xup])
-ax_u2_c_p.set_ylim([xlo, xup])
+ax_u2_c_p.set_ylim([-0.15, 0.65])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_2$ (Theoretical)')
@@ -655,7 +655,7 @@ ax_u1_c_pr.plot(x1u1_c_pr, y1u1_c_pr, 'k--')
 ax_u1_c_pr.grid()
 
 ax_u1_c_pr.set_xlim([xlo, xup])
-ax_u1_c_pr.set_ylim([xlo, xup])
+ax_u1_c_pr.set_ylim([-0.15, 0.65])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_1$ (Theoretical)')
@@ -729,7 +729,7 @@ ax_u2_c_pr.plot(x1u2_c_pr, y1u2_c_pr, 'k--')
 ax_u2_c_pr.grid()
 
 ax_u2_c_pr.set_xlim([xlo, xup])
-ax_u2_c_pr.set_ylim([xlo, xup])
+ax_u2_c_pr.set_ylim([-0.15, 0.65])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_2$ (Theoretical)')
@@ -820,7 +820,7 @@ ax_u1_co_p.plot(x1u1_co_p, y1u1_co_p, 'k--')
 ax_u1_co_p.grid()
 
 ax_u1_co_p.set_xlim([xlo, xup])
-ax_u1_co_p.set_ylim([xlo, xup])
+ax_u1_co_p.set_ylim([-0.15, 0.65])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_1$ (Theoretical)')
@@ -892,7 +892,7 @@ ax_u2_co_p.plot(x1u2_co_p, y1u2_co_p, 'k--')
 ax_u2_co_p.grid()
 
 ax_u2_co_p.set_xlim([xlo, xup])
-ax_u2_co_p.set_ylim([xlo, xup])
+ax_u2_co_p.set_ylim([-0.15, 0.65])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_2$ (Theoretical)')
