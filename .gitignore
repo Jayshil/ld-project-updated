@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+WASP-62/multisector_in_transit_ExpMatern/_dynesty_DNS_posteriors.pkl
+WASP-62/multisector_in_transit_ExpMatern/GP_lc_regressors.dat
+WASP-62/multisector_in_transit_ExpMatern/jomnest_ev.dat
+.gitignore
+WASP-62/multisector_in_transit_ExpMatern/jomnest_IS.iterinfo
+WASP-62/multisector_in_transit_ExpMatern/jomnest_IS.points
+WASP-62/multisector_in_transit_ExpMatern/jomnest_IS.ptprob
+WASP-62/multisector_in_transit_ExpMatern/jomnest_live.points
+WASP-62/multisector_in_transit_ExpMatern/jomnest_phys_live.points
+WASP-62/multisector_in_transit_ExpMatern/jomnest_resume.dat
+WASP-62/multisector_in_transit_ExpMatern/lc.dat
+WASP-62/multisector_in_transit_ExpMatern/posteriors.dat
+WASP-62/multisector_in_transit_ExpMatern/priors.dat
