@@ -69,6 +69,7 @@ samples = np.zeros([len(sectors),2000])
 sigmas = np.zeros(len(sectors))
 
 for i in range(len(sectors)):
+    transit_plus_GP_model = res1.lc.evaluate(sectors[i])
     phase = juliet.get_phases(dataset.times_lc[sectors[i]], P, t0)
     time,flux,flux_err = dataset.times_lc[sectors[i]], dataset.data_lc[sectors[i]], dataset.errors_lc[sectors[i]]
     m = res1.lc.model[sectors[i]]['deterministic']#np.loadtxt(sectors[i]+'/results/exm1/phased_lc_planet1_TESS.dat',unpack=True)
@@ -77,11 +78,11 @@ for i in range(len(sectors)):
     flux = (flux-1.)*factor + sname2[i]
     flux_err = flux_err*factor
     # For GP
-    gp_model = res1.lc.model[sectors[i]]['GP']
+    gp_model1 = res1.lc.model[sectors[i]]['GP']
     idx = np.argsort(phase)
-    xbin,ybin,ybin_err = bin_data(phase[idx],flux[idx]-gp_model[idx],120)
+    xbin,ybin,ybin_err = bin_data(phase[idx],flux[idx]-gp_model1[idx],120)
     #print sectorname[i],'1hr error:',np,median(ybin_err)*1e6
-    ax1.errorbar(flux-gp_model,phase,xerr=flux_err,fmt='.',elinewidth=1,color='black',alpha=0.1,zorder=1)
+    ax1.errorbar(flux-gp_model1,phase,xerr=flux_err,fmt='.',elinewidth=1,color='black',alpha=0.1,zorder=1)
     ax1.errorbar(ybin,xbin,xerr=ybin_err,fmt='o',markeredgewidth=1,ms=10,elinewidth=1,ecolor='black',mec='cornflowerblue',mfc='white',zorder=5)
     ax1.plot(m[idx],phase[idx],color='cornflowerblue',zorder=3)
     #posteriors = pickle.load(open(sectors[i]+'/results/exm1/posteriors.pkl','r'))
