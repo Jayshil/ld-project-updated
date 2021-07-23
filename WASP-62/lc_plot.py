@@ -1,7 +1,10 @@
 from pylab import *
-import exotoolbox
+#import exotoolbox
 import seaborn as sns
 import pickle
+import juliet
+from pylab import *
+from matplotlib import rcParams
 
 def bin_data(x,y,n_bin):
     x_bins = []
@@ -34,21 +37,37 @@ ax2 = axs[1]
 #fig = plt.figure(figsize=(12, 6)) 
 #ax = fig.add_subplot(111)
 
-sectors = ['WASP-126_sector0','WASP-126_sector10','WASP-126_sector11','WASP-126_sector12',\
-           'WASP-126_sector13','WASP-126_sector14','WASP-126_sector5','WASP-126_sector6','WASP-126_sector7',\
-           'WASP-126_sector8','WASP-126_sector9']
+sectors = ['TESS1', 'TESS2', 'TESS3', 'TESS4', 'TESS6', 'TESS7', 'TESS8', 'TESS9', 'TESS10', 'TESS11', 'TESS12',\
+     'TESS13', 'TESS27', 'TESS28', 'TESS29', 'TESS30', 'TESS31', 'TESS32', 'TESS33', 'TESS34']
 
-sectorname = [1,7,8,9,10,11,2,3,4,5,6]
+#sectors = ['WASP-126_sector0','WASP-126_sector10','WASP-126_sector11','WASP-126_sector12',\
+#           'WASP-126_sector13','WASP-126_sector14','WASP-126_sector5','WASP-126_sector6','WASP-126_sector7',\
+#           'WASP-126_sector8','WASP-126_sector9']
 
-P = 2.849375
+#sectorname = [1,7,8,9,10,11,2,3,4,5,6]
+sectorname = [1,2,3,4,6,7,8,9,10,11,12,13,27,28,29,30,31,32,33,34]
+
+#P = 2.849375
 #sectorname = [0,10,11,12,13,14,5,6,7,8,9]
-parameter_name = 'r2_p1'
+
+
+parameter_name = 'p_p1'
 all_data = []
 all_data_err = []
 samples = np.zeros([len(sectors),2000])
 sigmas = np.zeros(len(sectors))
+
+dataset = juliet.load(input_folder='multisector_in_transit_ExpMatern')
+res1 = dataset.fit(sampler='dynamic_dynesty')
+# Making phases
+P, t0 = np.median(res1.posteriors['posterior_samples']['P_p1']),\
+        np.median(res1.posteriors['posterior_samples']['t0_p1'])
+
+
 for i in range(len(sectors)):
-    phase,time,flux,flux_err,m = np.loadtxt(sectors[i]+'/results/exm1/phased_lc_planet1_TESS.dat',unpack=True)
+    phase = juliet.get_phases(dataset.times_lc[sectors[i]], P, t0)
+    time, flux, flux_err = dataset.times_lc[sectors[i]], dataset.data_lc[sectors[i]], dataset.errors_lc[sectors[i]]
+    #phase,time,flux,flux_err,m = np.loadtxt(sectors[i]+'/results/exm1/phased_lc_planet1_TESS.dat',unpack=True)
     factor = (0.8/np.min(m-1.))
     m = (m-1.)*factor + sectorname[i]
     flux = (flux-1.)*factor + sectorname[i]
@@ -60,7 +79,7 @@ for i in range(len(sectors)):
     ax1.errorbar(ybin,xbin,xerr=ybin_err,fmt='o',markeredgewidth=1,ms=10,elinewidth=1,ecolor='black',mec='cornflowerblue',mfc='white',zorder=5)
     ax1.plot(m[idx],phase[idx],color='cornflowerblue',zorder=3)
     posteriors = pickle.load(open(sectors[i]+'/results/exm1/posteriors.pkl','r'))
-    if parameter_name == 'r2_p1':
+    if parameter_name == 'p_p1':
         posteriors['posterior_samples'][parameter_name] = (posteriors['posterior_samples'][parameter_name]**2)*1e6
     idx = np.random.choice(np.arange(len(posteriors['posterior_samples'][parameter_name])),2000,replace=False)
     samples[i,:] = posteriors['posterior_samples'][parameter_name][idx]
@@ -69,6 +88,8 @@ for i in range(len(sectors)):
     sigmas[i] = data_err
     all_data.append(data)
     all_data_err.append(data_err)
+
+
 ax1.set_ylabel('Phase')
 ax1.set_xlim([0,12])
 ax1.set_ylim([-0.04,0.04])
@@ -76,16 +97,16 @@ ax1.set_xticks(range(1,12))
 ax1.set_xticklabels([])
 ax1.set_xlabel('(Amplified) Relative flux + Sector')
 sectorname,all_data,all_data_err = np.array(sectorname),np.array(all_data),np.array(all_data_err)
-print 'Errors in ppm and sum/sqrt(n)'
-print sigmas
-print np.sqrt(np.sum(sigmas**2))/np.double(len(sigmas))
+print('Errors in ppm and sum/sqrt(n)')
+print(sigmas)
+print(np.sqrt(np.sum(sigmas**2))/np.double(len(sigmas)))
 samples = np.median(samples,axis=0)
 
-pmean,vu,vd = exotoolbox.utils.get_quantiles(samples)
+pmean,vu,vd = juliet.utils.get_quantiles(samples)
 psigmau = vu-pmean
 psigmad = pmean-vd
-print pmean,psigmau,psigmad
-print len(samples)
+print(pmean,psigmau,psigmad)
+print(len(samples))
 
 ax2.fill_between([0,12],[vd,vd],[vu,vu],color='grey',alpha=0.5)
 
