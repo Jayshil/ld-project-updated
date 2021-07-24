@@ -73,9 +73,9 @@ for i in range(len(sectors)):
     phase = juliet.get_phases(dataset.times_lc[sectors[i]], P, t0)
     time,flux,flux_err = dataset.times_lc[sectors[i]], dataset.data_lc[sectors[i]], dataset.errors_lc[sectors[i]]
     m = res1.lc.model[sectors[i]]['deterministic']#np.loadtxt(sectors[i]+'/results/exm1/phased_lc_planet1_TESS.dat',unpack=True)
-    factor = (0.8/np.min(m-1.))
-    m = (m-1.)*factor + sname2[i]
-    flux = (flux-1.)*factor + sname2[i]
+    factor = 1/np.max(m)#(0.8/np.min(m-1.))
+    m = (m)*factor + sname2[i] - 1
+    flux = (flux)*factor + sname2[i] - 1
     flux_err = flux_err*factor
     # For GP
     gp_model1 = res1.lc.model[sectors[i]]['GP']
