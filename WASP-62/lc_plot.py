@@ -73,16 +73,22 @@ for i in range(len(sectors)):
     phase = juliet.get_phases(dataset.times_lc[sectors[i]], P, t0)
     time,flux,flux_err = dataset.times_lc[sectors[i]], dataset.data_lc[sectors[i]], dataset.errors_lc[sectors[i]]
     m = res1.lc.model[sectors[i]]['deterministic']#np.loadtxt(sectors[i]+'/results/exm1/phased_lc_planet1_TESS.dat',unpack=True)
-    factor = 1/np.max(m)#(0.8/np.min(m-1.))
-    m = (m)*factor + sname2[i] - 1
-    flux = (flux)*factor + sname2[i] - 1
-    flux_err = flux_err*factor
     # For GP
     gp_model1 = res1.lc.model[sectors[i]]['GP']
+    # To normalise
+    fac1 = 1/np.max(m)
+    m = m*fac1
+    flux = flux*fac1
+    flux_err = flux_err*fac1
+    # To amplify
+    factor = (0.8/np.min(m-1.))
+    m = (m-1.)*factor + sname2[i]
+    flux = (flux-1.-gp_model1)*factor + sname2[i]
+    flux_err = flux_err*factor
     idx = np.argsort(phase)
-    xbin,ybin,ybin_err = bin_data(phase[idx],flux[idx]-gp_model1[idx],120)
+    xbin,ybin,ybin_err = bin_data(phase[idx],flux[idx],120)
     #print sectorname[i],'1hr error:',np,median(ybin_err)*1e6
-    ax1.errorbar(flux-gp_model1,phase,xerr=flux_err,fmt='.',elinewidth=1,color='black',alpha=0.1,zorder=1)
+    ax1.errorbar(flux,phase,xerr=flux_err,fmt='.',elinewidth=1,color='black',alpha=0.1,zorder=1)
     ax1.errorbar(ybin,xbin,xerr=ybin_err,fmt='o',markeredgewidth=1,ms=10,elinewidth=1,ecolor='black',mec='cornflowerblue',mfc='white',zorder=5)
     ax1.plot(m[idx],phase[idx],color='cornflowerblue',zorder=3)
     #posteriors = pickle.load(open(sectors[i]+'/results/exm1/posteriors.pkl','r'))
@@ -99,7 +105,7 @@ for i in range(len(sectors)):
 
 ax1.set_ylabel('Phase')
 ax1.set_xlim([0,21])
-ax1.set_ylim([-0.025,0.025])
+ax1.set_ylim([-0.04,0.04])
 ax1.set_xticks(range(1,21))
 ax1.set_xticklabels([])
 ax1.set_xlabel('(Amplified) Relative flux + Sector')
