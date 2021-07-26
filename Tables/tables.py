@@ -42,7 +42,7 @@ u1, u1p, u1n, u2, u2p, u2n = np.loadtxt(path1 + '/Data/results.dat', usecols = (
 
 re, reep, reen = np.loadtxt(path1 + '/Data/results.dat', usecols = (4,5,6), unpack = True)
 ae, aeep, aeen = np.loadtxt(path1 + '/Data/results.dat', usecols = (22,23,24), unpack = True)
-tce, tcep, tcen = np.loadtxt(path1 + '/Results/comp_a_r_p/to_the.dat', usecols = (1,2,2), unpack = True)
+tce, tcep, tcen = np.loadtxt(path1 + '/Data/results.dat', usecols = (25,26,27), unpack = True)
 
 #---------------------------------------------------------------------------------------------
 #------------------------ Starting Iteration to calculate things------------------------------
