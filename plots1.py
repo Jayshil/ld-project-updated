@@ -451,6 +451,8 @@ xuu1_c_a = np.maximum(u1max_j, u1max_c_a)
 xlo = np.minimum(xlu1_c_p, xlu1_c_a)
 xup = np.maximum(xuu1_c_p, xuu1_c_a)
 
+xlo, xup = -0.4, 1.4
+
 x1u1_c_p = y1u1_c_p = np.linspace(xlo, xup, 100)
 y11u1_c_p = np.zeros(len(x1u1_c_p))
 
@@ -491,7 +493,7 @@ ax_u1_c_p.plot(x1u1_c_p, y1u1_c_p, 'k--')
 ax_u1_c_p.grid()
 
 ax_u1_c_p.set_xlim([xlo, xup])
-ax_u1_c_p.set_ylim([-0.015, 0.525])
+ax_u1_c_p.set_ylim([xlo, xup])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_1$ (Theoretical)')
@@ -522,6 +524,8 @@ xuu2_c_a = np.maximum(u2max_j, u2max_c_a)
 
 xlo = np.minimum(xlu2_c_p, xlu2_c_a)
 xup = np.maximum(xuu2_c_p, xuu2_c_a)
+
+xlo, xup = -0.4, 1.4
 
 x1u2_c_p = y1u2_c_p = np.linspace(xlo, xup, 100)
 y11u2_c_p = np.zeros(len(x1u2_c_p))
@@ -563,7 +567,7 @@ ax_u2_c_p.plot(x1u2_c_p, y1u2_c_p, 'k--')
 ax_u2_c_p.grid()
 
 ax_u2_c_p.set_xlim([xlo, xup])
-ax_u2_c_p.set_ylim([-0.015, 0.65])
+ax_u2_c_p.set_ylim([xlo, xup])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_2$ (Theoretical)')
@@ -613,6 +617,8 @@ xuu1_c_ar = np.maximum(u1max_j, u1max_c_ar)
 xlo = np.minimum(xlu1_c_pr, xlu1_c_ar)
 xup = np.maximum(xuu1_c_pr, xuu1_c_ar)
 
+xlo, xup = -0.4, 1.4
+
 x1u1_c_pr = y1u1_c_pr = np.linspace(xlo, xup, 100)
 y11u1_c_pr = np.zeros(len(x1u1_c_pr))
 
@@ -655,7 +661,7 @@ ax_u1_c_pr.plot(x1u1_c_pr, y1u1_c_pr, 'k--')
 ax_u1_c_pr.grid()
 
 ax_u1_c_pr.set_xlim([xlo, xup])
-ax_u1_c_pr.set_ylim([0.0, 0.5])
+ax_u1_c_pr.set_ylim([xlo, xup])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_1$ (Theoretical)')
@@ -686,6 +692,8 @@ xuu2_c_ar = np.maximum(u2max_j, u2max_c_ar)
 
 xlo = np.minimum(xlu2_c_pr, xlu2_c_ar)
 xup = np.maximum(xuu2_c_pr, xuu2_c_ar)
+
+xlo, xup = -0.4, 1.4
 
 x1u2_c_pr = y1u2_c_pr = np.linspace(xlo, xup, 100)
 y11u2_c_pr = np.zeros(len(x1u2_c_pr))
@@ -729,7 +737,7 @@ ax_u2_c_pr.plot(x1u2_c_pr, y1u2_c_pr, 'k--')
 ax_u2_c_pr.grid()
 
 ax_u2_c_pr.set_xlim([xlo, xup])
-ax_u2_c_pr.set_ylim([0.15, 0.65])
+ax_u2_c_pr.set_ylim([xlo, xup])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_2$ (Theoretical)')
@@ -780,6 +788,8 @@ xuu1_co_a = np.maximum(u1max_j, u1max_co_a)
 xlo = np.minimum(xlu1_co_p, xlu1_co_a)
 xup = np.maximum(xuu1_co_p, xuu1_co_a)
 
+xlo, xup = -0.4, 1.4
+
 x1u1_co_p = y1u1_co_p = np.linspace(xlo, xup, 100)
 y11u1_co_p = np.zeros(len(x1u1_co_p))
 
@@ -820,7 +830,7 @@ ax_u1_co_p.plot(x1u1_co_p, y1u1_co_p, 'k--')
 ax_u1_co_p.grid()
 
 ax_u1_co_p.set_xlim([xlo, xup])
-ax_u1_co_p.set_ylim([0.10, 0.55])
+ax_u1_co_p.set_ylim([xlo, xup])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_1$ (Theoretical)')
@@ -851,6 +861,8 @@ xuu2_co_a = np.maximum(u2max_j, u2max_co_a)
 
 xlo = np.minimum(xlu2_co_p, xlu2_co_a)
 xup = np.maximum(xuu2_co_p, xuu2_co_a)
+
+xlo, xup = -0.4, 1.4
 
 x1u2_co_p = y1u2_co_p = np.linspace(xlo, xup, 100)
 y11u2_co_p = np.zeros(len(x1u2_co_p))
@@ -892,7 +904,7 @@ ax_u2_co_p.plot(x1u2_co_p, y1u2_co_p, 'k--')
 ax_u2_co_p.grid()
 
 ax_u2_co_p.set_xlim([xlo, xup])
-ax_u2_co_p.set_ylim([0.1, 0.6])
+ax_u2_co_p.set_ylim([xlo, xup])
 
 plt.legend(loc='best')
 plt.ylabel(r'$u_2$ (Theoretical)')
