@@ -256,7 +256,7 @@ def binned_data(datax, datay, nos=10, datax_err=None, datay_err=None):
 #------------------------------Transformed LDCs--------------------------------------------
 #------------------------------------------------------------------------------------------
 
-def cor_ldcs(u1, u2, phi=40):
+def transformed_ldcs(u1, u2, phi=40):
     """
     Take quadratic LDCs and return
     transformed LDCs w/o correlation
