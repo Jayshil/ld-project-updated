@@ -250,3 +250,32 @@ def binned_data(datax, datay, nos=10, datax_err=None, datay_err=None):
 	bin_datay = np.hstack((bin_datay, np.median(remd)))
 	bin_datay_err = np.hstack((bin_datay_err, np.std(remd)))
 	return bin_datax, bin_datax_err, bin_datay, bin_datay_err
+
+
+#------------------------------------------------------------------------------------------
+#------------------------------Transformed LDCs--------------------------------------------
+#------------------------------------------------------------------------------------------
+
+def cor_ldcs(u1, u2, phi=40):
+	"""
+	Take quadratic LDCs and return
+	transformed LDCs w/o correlation
+	Pál (2008) and Kipping & Bakos (2011)
+	--------------------------------
+	Paramters:
+	----------
+	u1, u2 : float, or numpy.ndarray
+	    Quadratic LDCs
+	phi : deg
+	    angle of transformation
+		default is 40 deg
+	-----------
+	return
+	-----------
+	float, or numpy.ndarray
+	    transformed LDCs
+	"""
+	phi1 = phi*np.pi/180
+	w1 = u1*np.cos(phi1) - u2*np.sin(phi1)
+	w2 = u2*np.cos(phi1) + u1*np.sin(phi1)
+	return w1, w2
