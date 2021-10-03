@@ -20,13 +20,14 @@ path2 = '/home/jayshil/Documents/Dissertation'
 
 #os.system('mkdir ' + path1 + '/Light-curve')
 
-os.system('mkdir ' + path1 + '/Results')
-os.system('mkdir ' + path1 + '/Results/cal_us_and_evidance')
-os.system('mkdir ' + path1 + '/Results/comp_a_r_p')
-os.system('mkdir ' + path1 + '/Results/stellar_prop')
-os.system('mkdir ' + path1 + '/Results/variation_with_temp')
+#os.system('mkdir ' + path1 + '/Results')
+#os.system('mkdir ' + path1 + '/Results/cal_us_and_evidance')
+#os.system('mkdir ' + path1 + '/Results/comp_a_r_p')
+#os.system('mkdir ' + path1 + '/Results/stellar_prop')
+#os.system('mkdir ' + path1 + '/Results/variation_with_temp')
 #os.system('mkdir ' + path1 + '/limb-darkening-master/results')
 
+"""
 #--------------------------------------------------------------------------------------------------
 #--------------------------------Claret (2017) PHOENIX LDCs----------------------------------------
 #--------------------------------------------------------------------------------------------------
@@ -41,7 +42,7 @@ f2.write('#Name\t\tu1\t\tu2\n')
 
 f2r = open(path1 + '/Phoenix/claret_limiting_LDC_pho_r.dat','w')#------------Limiting-r---------------
 f2r.write('#Name\t\tu1\t\tu2\n')
-
+"""
 #--------------------------------------------------------------------------------------------------
 #--------------------------------Claret (2017) ATLAS LDCs------------------------------------------
 #--------------------------------------------------------------------------------------------------
@@ -50,7 +51,7 @@ f3.write('#Name\t\tc1\t\t\tc2\t\t\tc3\t\t\tc4\n')
 
 f4 = open(path1 + '/Atlas/claret_limiting_LDC_ata.dat','w')##-------------Limiting------------------
 f4.write('#Name\t\tu1\t\tu2\n')
-
+"""
 #--------------------------------------------------------------------------------------------------
 #----------------------------------Code ATLAS LDCs-------------------------------------------------
 #--------------------------------------------------------------------------------------------------
@@ -69,7 +70,7 @@ f11.write('#Name\t\tc1\t\t\tc2\t\t\tc3\t\t\tc4\n')
 f22 = open(path1 + '/Phoenix/code_limiting_LDC_pho.dat','w')#--------------Limiting----------------
 f22.write('#Name\t\tu1\t\tu2\n')
 
-
+"""
 #---------------------------------------------------------------------------------------------
 #--------------------------Taking Data from the data file-------------------------------------
 #---------------------------------------------------------------------------------------------
@@ -87,6 +88,7 @@ print('----------------------------- Starting Third Iteration: To Calculate Theo
 print('--------------------------------------------------------------------------------------------------------------------------')
 
 for i in range(len(name2)):
+	"""
 	#--------------------------------------
 	#------Making input files for----------
 	#-------Limb Darkening Code------------
@@ -160,6 +162,7 @@ for i in range(len(name2)):
 	u1_pr = ((12*c1_pr)/35) + c2_pr + ((164*c3_pr)/105) + (2*c4_pr)
 	u2_pr = ((10*c1_pr)/21) - ((34*c3_pr)/63) - c4_pr
 	f2r.write(name2[i] + '\t' + str(u1_pr) + '\t' + str(u2_pr) + '\n')
+	"""
 	#--------------------------------------
 	#-----Calculating LDCs from ATLAS------
 	#--------from Claret(2017)-------------
@@ -183,19 +186,19 @@ for i in range(len(name2)):
 	print('****************************************************************************************')
 
 
-f1.close()
-f2.close()
-f1r.close()
-f2r.close()
+#f1.close()
+#f2.close()
+#f1r.close()
+#f2r.close()
 f3.close()
-f33.close()
+#f33.close()
 f4.close()
-f11.close()
+#f11.close()
 
 #--------------------------------------------------------------------------------------------------
 #----------------Calculating Limiting LDCs from ATLAS (Code)---------------------------------------
 #--------------------------------------------------------------------------------------------------
-
+"""
 name1 = np.loadtxt(path1 + '/Atlas/code_us_nl_ata.dat',dtype=str,usecols=0,unpack=True)
 c1_code_a, c2_code_a, c3_code_a, c4_code_a = np.loadtxt(path1 + '/Atlas/code_us_nl_ata.dat', usecols=(1,2,3,4), unpack=True)
 
@@ -221,7 +224,7 @@ for i in range(len(name11)):
 	f22.write(name11[i] + '\t\t' + str(u1_code_p[i]) + '\t\t' + str(u2_code_p[i]) + '\n')
 
 f22.close()
-
+"""
 print("----------------------------------------------------------------------------------")
 print("---------------------Your computing task is complete!!----------------------------")
 print("----------------------------------------------------------------------------------")
