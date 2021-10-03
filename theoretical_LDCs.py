@@ -18,14 +18,15 @@ path1 = os.getcwd()#input('Enter the path of this folder: ')
 #path1 = '/home/jayshil/Documents/Dissertation'
 path2 = '/home/jayshil/Documents/Dissertation'
 
-#os.system('mkdir ' + path1 + '/Light-curve')
+os.system('mkdir ' + path1 + '/Light-curve')
 
 os.system('mkdir ' + path1 + '/Results')
 os.system('mkdir ' + path1 + '/Results/cal_us_and_evidance')
 os.system('mkdir ' + path1 + '/Results/comp_a_r_p')
 os.system('mkdir ' + path1 + '/Results/stellar_prop')
 os.system('mkdir ' + path1 + '/Results/variation_with_temp')
-#os.system('mkdir ' + path1 + '/limb-darkening-master/results')
+os.system('mkdir ' + path1 + '/limb-darkening-master/results')
+
 
 #--------------------------------------------------------------------------------------------------
 #--------------------------------Claret (2017) PHOENIX LDCs----------------------------------------
