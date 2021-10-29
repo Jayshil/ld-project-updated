@@ -141,6 +141,8 @@ ax_a.errorbar(aste, a_j, xerr = [astenerr, asteperr], yerr = [a_jn, a_jp], fmt =
 
 plt.xlim([xla_j, xua_j])
 plt.ylim([xla_j, xua_j])
+plt.xscale('log')
+plt.yscale('log')
 ax_a.plot(x1a, y1a, 'k--')
 ax_a.grid()
 plt.ylabel(r'$a/R_*$ (Observed)')
@@ -152,6 +154,7 @@ ax1_a.errorbar(aste, diff_a, xerr = [astenerr, asteperr], yerr = diff_ae, fmt = 
 
 plt.xlim([xla_j, xua_j])
 plt.ylim([-2,2])
+plt.xscale('log')
 ax1_a.plot(x1a, y11a, 'k--')
 ax1_a.grid()
 plt.ylabel('Residuals')
@@ -1827,6 +1830,10 @@ f102.write('EJ(2015), ATLAS        \t\t' + 'Constant fit  \t' + str(bic_u1_co_a_
 f102.write('                       \t\t' + 'Linear fit    \t' + str(bic_u1_co_a_l) + '\t' + str(bic_u2_co_a_l) + '\n')
 f102.write('                       \t\t' + 'Quadratic fit \t' + str(bic_u1_co_a_q) + '\t' + str(bic_u2_co_a_q) + '\n')
 f102.close()
+
+
+
+
 
 print("--------------------------------------------------------------------------------")
 print("---------------------Your ploting task is complete!!----------------------------")
