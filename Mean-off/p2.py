@@ -70,9 +70,9 @@ br2 = [x + barWidth for x in br1]
 for i in range(len(u1_s)):
     if i == 0:
         ax2.bar(br1[i], u1_t[i].n, color ='orangered', width = barWidth,
-                edgecolor ='orangered', alpha=0.5, label ='Tables')
+                edgecolor ='orangered', alpha=0.5, label ='Values from LDC Tables/Codes')
         ax2.bar(br2[i], u1_s[i].n, color ='cornflowerblue', width = barWidth,
-                edgecolor ='cornflowerblue', alpha=0.5, label ='SPAM')
+                edgecolor ='cornflowerblue', alpha=0.5, label ='SPAM LDCs')
     else:
         ax2.bar(br1[i], u1_t[i].n, color ='orangered', width = barWidth,
                 edgecolor ='orangered', alpha=0.5)
@@ -86,7 +86,9 @@ ax2.set_ylabel(r'$\Delta u_1$', fontsize = 18)
 ax2.xaxis.tick_top()
 ax2.set_xticks([r + (barWidth/2) for r in range(len(u1_s))])
 ax2.set_xticklabels([])
-ax2.text(0,-0.25,'Text u1')
+ax2.text(-0.25,-0.23,r'Mean offset (for $u_1$):', fontsize=18)
+ax2.text(-0.25,-0.26,r'Empirical (TESS) LDCs $-$ Theoretical LDCs', fontsize=18)
+ax2.legend(loc='lower right', fontsize=15)
 
 #ax2.ylabel('Mean Offset', fontweight ='bold', fontsize = 15)
 
@@ -94,9 +96,9 @@ ax2.text(0,-0.25,'Text u1')
 for i in range(len(u2_s)):
     if i == 0:
         ax1.bar(br1[i], u2_t[i].n, color ='orangered', width = barWidth,
-                edgecolor ='orangered', alpha=0.5, label ='Tables')
+                edgecolor ='orangered', alpha=0.5, label ='Values from LDCs Tables/Codes')
         ax1.bar(br2[i], u2_s[i].n, color ='cornflowerblue', width = barWidth,
-                edgecolor ='cornflowerblue', alpha=0.5, label ='SPAM')
+                edgecolor ='cornflowerblue', alpha=0.5, label ='SPAM LDCs')
     else:
         ax1.bar(br1[i], u2_t[i].n, color ='orangered', width = barWidth,
                 edgecolor ='orangered', alpha=0.5)
@@ -113,7 +115,9 @@ ax1.set_xticks([r + (barWidth/2) for r in range(len(u1_s))])
 ax1.set_xticklabels([r'EJ15 (\textsc{atlas})', r'EJ15 (\textsc{phoenix})', r'C17 (\textsc{atlas})',\
          r'C17q (\textsc{phoenix})', r'C17r (\textsc{phoenix})'], rotation=0, fontsize=15)
 ax1.set_ylabel(r'$\Delta u_2$', fontsize = 18)
-ax1.text(0,0.25,'Text u2')
+ax1.text(-0.25,0.24,r'Mean offset (for $u_2$):',fontsize=18)
+ax1.text(-0.25,0.21,r'Empirical (TESS) LDCs $-$ Theoretical LDCs', fontsize=18)
+
 # Adding Xticks
 #plt.xlabel('', fontweight ='bold', fontsize = 15)
 
@@ -123,5 +127,6 @@ plt.subplots_adjust(hspace = 0.25)
 #plt.xticks([r + (barWidth/2) for r in range(len(u1_s))],
 #        ['EJ15 (Atlas)', 'EJ15 (Phoenix)', 'C17 (Claret)', 'C17 (Phoenix - q)', 'C17 (Phoenix - r)'])
 #plt.tight_layout()
-plt.legend()
+#plt.legend()
+plt.savefig(os.getcwd() + '/Mean-off/mean_off.pdf')
 plt.show()
