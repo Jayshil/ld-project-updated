@@ -86,8 +86,8 @@ ax2.set_ylabel(r'$\Delta u_1$', fontsize = 18)
 ax2.xaxis.tick_top()
 ax2.set_xticks([r + (barWidth/2) for r in range(len(u1_s))])
 ax2.set_xticklabels([])
-ax2.text(-0.25,-0.23,r'Mean offset (for $u_1$):', fontsize=18)
-ax2.text(-0.25,-0.26,r'Empirical (TESS) LDCs $-$ Theoretical LDCs', fontsize=18)
+ax2.text(-0.25,-0.23,r'Mean offset ($\Delta u_1$):', fontsize=18)
+ax2.text(-0.25,-0.26,r'Theoretical LDCs $-$ Empirical (TESS) LDCs', fontsize=18)
 ax2.legend(loc='lower right', fontsize=15)
 
 #ax2.ylabel('Mean Offset', fontweight ='bold', fontsize = 15)
@@ -115,8 +115,8 @@ ax1.set_xticks([r + (barWidth/2) for r in range(len(u1_s))])
 ax1.set_xticklabels([r'EJ15 (\textsc{atlas})', r'EJ15 (\textsc{phoenix})', r'C17 (\textsc{atlas})',\
          r'C17q (\textsc{phoenix})', r'C17r (\textsc{phoenix})'], rotation=0, fontsize=15)
 ax1.set_ylabel(r'$\Delta u_2$', fontsize = 18)
-ax1.text(-0.25,0.24,r'Mean offset (for $u_2$):',fontsize=18)
-ax1.text(-0.25,0.21,r'Empirical (TESS) LDCs $-$ Theoretical LDCs', fontsize=18)
+ax1.text(-0.25,0.24,r'Mean offset (for $\Delta u_2$):',fontsize=18)
+ax1.text(-0.25,0.21,r'Theoretical LDCs $-$ Empirical (TESS) LDCs', fontsize=18)
 
 # Adding Xticks
 #plt.xlabel('', fontweight ='bold', fontsize = 15)
