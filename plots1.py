@@ -1220,12 +1220,16 @@ elif 'linear' in best_bic_u1_c_a:
 elif 'quadratic' in best_bic_u1_c_a:
 	plt.plot(t11, quadratic(t11, *popt1_q), color = 'cornflowerblue', ls='-.', zorder=3, alpha=0.85)
 
+
+plt.ylim([-1.5, 0.5])
+
 #---------------------
 plt.plot(x, y, 'k--')
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel(r'Residuals in $u_1$ Claret(2017) LDCs')
 plt.xlabel('Effective Temperature')
+plt.tight_layout()
 plt.savefig(path1 + '/Results/variation_with_temp/u1_cla_te.pdf')
 plt.close(fig1)
 
@@ -1335,12 +1339,16 @@ elif 'linear' in best_bic_u2_c_a:
 elif 'quadratic' in best_bic_u2_c_a:
 	plt.plot(t11, quadratic(t11, *popt3_q), color='cornflowerblue', ls='-.', zorder=3, alpha=0.85)
 
+
+plt.ylim([-0.75, 1.25])
+
 #---------------------
 plt.plot(x, y, 'k--')
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel(r'Residuals in $u_2$ Claret(2017) LDCs')
 plt.xlabel('Effective Temperature')
+plt.tight_layout()
 plt.savefig(path1 + '/Results/variation_with_temp/u2_cla_te.pdf')
 plt.close(fig2)
 
@@ -1450,12 +1458,16 @@ if 'linear' in best_bic_u1_co_a:
 if 'quadratic' in best_bic_u1_co_a:
 	plt.plot(t11, quadratic(t11, *popt5_q), color='cornflowerblue', ls='-.', zorder=3, alpha=0.85)
 
+
+plt.ylim([-1.5, 0.5])
+
 #---------------------
 plt.plot(x, y, 'k--')
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel(r'Residuals in $u_1$ Espinoza \& Jordan LDCs')
 plt.xlabel('Effective Temperature')
+plt.tight_layout()
 plt.savefig(path1 + '/Results/variation_with_temp/u1_code_te.pdf')
 plt.close(fig5)
 
@@ -1565,12 +1577,15 @@ elif 'linear' in best_bic_u2_co_a:
 elif 'quadratic' in best_bic_u2_co_a:
 	plt.plot(t11, quadratic(t11, *popt7_q), color='cornflowerblue', ls='-.', zorder=3, alpha=0.85)
 
+plt.ylim([-0.75, 1.25])
+
 #--------------------
 plt.plot(x, y, 'k--')
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel(r'Residuals in $u_2$ Espinoza \& Jordan (2015) LDCs')
 plt.xlabel('Effective Temperature')
+plt.tight_layout()
 plt.savefig(path1 + '/Results/variation_with_temp/u2_code_te.pdf')
 plt.close(fig6)
 
@@ -1682,12 +1697,16 @@ elif 'linear' in best_bic_u1_c_ar:
 elif 'quadratic' in best_bic_u1_c_ar:
 	plt.plot(t11, quadratic(t11, *popt1_qr), color = 'darkred', ls='-.', zorder=3, alpha=0.85)
 
+
+plt.ylim([-1.5, 0.5])
+
 #---------------------
 plt.plot(x, y, 'k--')
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel(r'Residuals in $u_1$ Claret(2017) LDCs')
 plt.xlabel('Effective Temperature')
+plt.tight_layout()
 plt.savefig(path1 + '/Results/variation_with_temp/u1_cla_te_r.pdf')
 plt.close(fig1r)
 
@@ -1789,12 +1808,16 @@ elif 'linear' in best_bic_u2_c_ar:
 elif 'quadratic' in best_bic_u2_c_ar:
 	plt.plot(t11, quadratic(t11, *popt3_qr), color='darkred', ls='-.', zorder=3, alpha=0.85)
 
+
+plt.ylim([-0.75, 1.25])
+
 #---------------------
 plt.plot(x, y, 'k--')
 plt.grid()
 plt.legend(loc='best')
 plt.ylabel(r'Residuals in $u_2$ Claret(2017) LDCs')
 plt.xlabel('Effective Temperature')
+plt.tight_layout()
 plt.savefig(path1 + '/Results/variation_with_temp/u2_cla_te_r.pdf')
 plt.close(fig2r)
 
