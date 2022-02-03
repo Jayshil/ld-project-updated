@@ -1,10 +1,10 @@
 Title: Empirical limb-darkening coefficients & transit parameters of known
        exoplanets from TESS
-Authors: Jayshil A. Patel and Nestor Espinoza
+Authors: Jayshil A. Patel and Néstor Espinoza
 Table: Limb darkening coefficients calculated using different methods for
        quadratic law
 ================================================================================
-Byte-by-byte Description of file: table.dat
+Byte-by-byte Description of file: ldc_ascii_mrt.dat
 --------------------------------------------------------------------------------
  Bytes Format Units  Label     Explanations
 --------------------------------------------------------------------------------

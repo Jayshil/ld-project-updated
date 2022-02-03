@@ -74,7 +74,7 @@ for i in range(len(teff)):
 	name1.append(name[i][:-1])
 
 # CDS table
-#str(np.format_float_positional(aste[i], 2)) + '^{+' + str(np.format_float_positional(asteperr[i], 2)) + '}_{-' + str(np.format_float_positional(astenerr[i], 2)) + '}$ & $' + str(np.format_float_positional(xx1[i] - 2458000, 3)) + ' \pm ' + str(np.format_float_positional(xx11[i], 3)) + '$ \\\\ \n\t')
+#str(np.format_float_positional(xx1[i] - 2458000, 3)) + ' \pm ' + str(np.format_float_positional(xx11[i], 3)) + '$ \\\\ \n\t')
 
 tab1 = Table()
 tab1['name'], tab1['name'].info.format, tab1['name'].description = name, '%s', 'Name of the planet'
@@ -84,7 +84,7 @@ tab1['Rp/R*_l'], tab1['Rp/R*_l'].info.format, tab1['Rp/R*_l'].description = reen
 tab1['a/R*'], tab1['a/R*'].info.format, tab1['a/R*'].description = ae, '%.2f', 'a/R* retrieved from this work'
 tab1['a/R*_u'], tab1['a/R*_u'].info.format, tab1['a/R*_u'].description = aeep, '%.2f', 'Upper 68% credibility band on a/R*'
 tab1['a/R*_l'], tab1['a/R*_l'].info.format, tab1['a/R*_l'].description = aeen, '%.2f', 'Lower 68% credibility band on a/R*'
-tab1['tc'], tab1['tc'].info.format, tab1['tc'].description = tce, '%.5f', 'Transit time (BJD - 2458000) from this work'
+tab1['tc'], tab1['tc'].info.format, tab1['tc'].description = tce-2458000, '%.5f', 'Transit time (BJD - 2458000) from this work'
 tab1['tcep'], tab1['tcep'].info.format, tab1['tcep'].description = tcep, '%.5f', 'Upper 68% credibility band on transit time'
 tab1['tcen'], tab1['tcen'].info.format, tab1['tcen'].description = tcen, '%.5f', 'Lower 68% credibility band on transit time'
 tab1['rprst'], tab1['rprst'].info.format, tab1['rprst'].description = rprst, '%.4f', 'Literature value of Rp/R*'
@@ -93,7 +93,8 @@ tab1['rprst_le'], tab1['rprst_le'].info.format, tab1['rprst_le'].description = r
 tab1['aste'], tab1['aste'].info.format, tab1['aste'].description = aste, '%.2f', 'Literature value of a/R*'
 tab1['aste_ue'], tab1['aste_ue'].info.format, tab1['aste_ue'].description = asteperr, '%.2f', 'Upper 68% credibility band on literature value of a/R*'
 tab1['aste_le'], tab1['aste_le'].info.format, tab1['aste_le'].description = astenerr, '%.2f', 'Lower 68% credibility band on literature value of a/R*'
-
+tab1['tc_lit'], tab1['tc_lit'].info.format, tab1['tc_lit'].description = xx1-2458000, '%.3f', 'Transit time (BJD - 2458000) predicted from literature'
+tab1['tc_lit_e'], tab1['tc_lit_e'].info.format, tab1['tc_lit_e'].description = xx11, '%.3f', '1-sigma errors on predicted transit time'
 
 tab1.write(os.getcwd() + '/Tables/planetary_ascii.dat', format='ascii.mrt', overwrite=True, delimiter='\t\t')
 #	 formats={'name':'%20s', 'temp':'%4.1f', 'logg':'%1.3f', 'mh':'%1.2f', 'vturb':'%s'})
