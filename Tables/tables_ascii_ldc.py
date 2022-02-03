@@ -35,14 +35,14 @@ teff, mh, lg, p, pperr, pnerr, tc, aste, asteperr, astenerr, rprst, rprstperr, r
 
 xx1, xx11 = np.loadtxt(path1 + '/Results/comp_a_r_p/to_the.dat', usecols = (1,2), unpack = True)
 
-u1_code_ata, u2_code_ata = np.loadtxt(path1 + '/Atlas/code_limiting_LDC_ata.dat', usecols = (1,2), unpack = True)
-u1_cla_ata, u2_cla_ata = np.loadtxt(path1 + '/Atlas/claret_limiting_LDC_ata.dat', usecols = (1,2), unpack = True)
+u1_code_ata, u2_code_ata = np.loadtxt(path1 + '/Atlas/code_limiting_LDC_ata.dat', usecols = (1,2), unpack = True, dtype='float64')
+u1_cla_ata, u2_cla_ata = np.loadtxt(path1 + '/Atlas/claret_limiting_LDC_ata.dat', usecols = (1,2), unpack = True, dtype='float64')
 
-u1_code_pho, u2_code_pho = np.loadtxt(path1 + '/Phoenix/code_limiting_LDC_pho.dat', usecols = (1,2), unpack = True)
-u1_cla_pho, u2_cla_pho = np.loadtxt(path1 + '/Phoenix/claret_limiting_LDC_pho.dat', usecols = (1,2), unpack = True)
-u1_cla_pho_r, u2_cla_pho_r = np.loadtxt(path1 + '/Phoenix/claret_limiting_LDC_pho_r.dat', usecols = (1,2), unpack = True)
+u1_code_pho, u2_code_pho = np.loadtxt(path1 + '/Phoenix/code_limiting_LDC_pho.dat', usecols = (1,2), unpack = True, dtype='float64')
+u1_cla_pho, u2_cla_pho = np.loadtxt(path1 + '/Phoenix/claret_limiting_LDC_pho.dat', usecols = (1,2), unpack = True, dtype='float64')
+u1_cla_pho_r, u2_cla_pho_r = np.loadtxt(path1 + '/Phoenix/claret_limiting_LDC_pho_r.dat', usecols = (1,2), unpack = True, dtype='float64')
 
-u1, u1p, u1n, u2, u2p, u2n = np.loadtxt(path1 + '/Data/results.dat', usecols = (16,17,18,19,20,21), unpack = True)
+u1, u1p, u1n, u2, u2p, u2n = np.loadtxt(path1 + '/Data/results.dat', usecols = (16,17,18,19,20,21), unpack = True, dtype='float64')
 
 re, reep, reen = np.loadtxt(path1 + '/Data/results.dat', usecols = (4,5,6), unpack = True)
 ae, aeep, aeen = np.loadtxt(path1 + '/Data/results.dat', usecols = (22,23,24), unpack = True)
@@ -63,11 +63,7 @@ table2.close()
 table3.close()
 """
 
-# For Stellar parameters
-# for vturb
-vt = []
-for i in range(len(teff)):
-	vt.append('...')
+# For LDCs
 # for name
 name1 = []
 for i in range(len(teff)):
@@ -80,19 +76,26 @@ tmk.author = "Jayshil A. Patel"
 tmk.authors = "Jayshil A. Patel and Nestor Espinoza"
 
 tab1 = Table()
-tab1['name'], tab1['temp'], tab1['logg'], tab1['mh'], tab1['vturb'] = np.asarray(name1), teff, lg, mh, np.asarray(vt)
-# Format
-tab1['name'].info.format, tab1['temp'].info.format, tab1['logg'].info.format, tab1['mh'].info.format, tab1['vturb'].info.format = '%s', '%4.1f', '%1.3f', '%1.2f', '%s'
-# Description
-tab1['name'].description = 'Name of the host star'
-tab1['temp'].description = 'Effective temperature'
-tab1['logg'].description = 'Surface gravity (in log cgs units)'
-tab1['mh'].description = 'Metallicity'
-tab1['vturb'].description = 'Microturbulent veocity'
-# Units
-tab1['temp'].units = u.K
+tab1['name'], tab1['name'].info.format, tab1['name'].description = np.asarray(name1), '%s', 'Name of the host star'
+tab1['u1_j'], tab1['u1_j'].info.format, tab1['u1_j'].description = u1, '%0.2f', 'u1 determined from juliet analysis'
+tab1['u1_j_p'], tab1['u1_j_p'].info.format, tab1['u1_j_p'].description = u1p, '%1.2f', 'upper band of 68% credibility'
+tab1['u1_j_n'], tab1['u1_j_n'].info.format, tab1['u1_j_n'].description = u1n, '%1.2f', 'lower band of 68% credibility'
+tab1['u2_j'], tab1['u2_j'].info.format, tab1['u2_j'].description = u2, '%1.2f', 'u2 determined from juliet analysis'
+tab1['u2_j_p'], tab1['u2_j_p'].info.format, tab1['u2_j_p'].description = u2p, '%1.2f', 'upper band of 68% credibility'
+tab1['u2_j_n'], tab1['u2_j_n'].info.format, tab1['u2_j_n'].description = u2n, '%1.2f', 'lower band of 68% credibility'
+tab1['u1_code_ata'], tab1['u1_code_ata'].info.format, tab1['u1_code_ata'].description = u1_code_ata, '%1.2f', 'u1 from EJ15 ATLAS'
+tab1['u2_code_ata'], tab1['u2_code_ata'].info.format, tab1['u2_code_ata'].description = u2_code_ata, '%1.2f', 'u2 from EJ15 ATLAS'
+tab1['u1_code_pho'], tab1['u1_code_pho'].info.format, tab1['u1_code_pho'].description = u1_code_pho, '%1.2f', 'u1 from EJ15 PHOENIX'
+tab1['u2_code_pho'], tab1['u2_code_pho'].info.format, tab1['u2_code_pho'].description = u2_code_pho, '%1.2f', 'u2 from EJ15 PHOENIX'
+tab1['u1_cla_ata'], tab1['u1_cla_ata'].info.format, tab1['u1_cla_ata'].description = u1_cla_ata, '%1.2f', 'u1 from C17 ATLAS'
+tab1['u2_cla_ata'], tab1['u2_cla_ata'].info.format, tab1['u2_cla_ata'].description = u2_cla_ata, '%1.2f', 'u2 from C17 ATLAS'
+tab1['u1_cla_pho'], tab1['u1_cla_pho'].info.format, tab1['u1_cla_pho'].description = u1_cla_pho, '%1.2f', 'u1 from C17 PHOENIX'
+tab1['u2_cla_pho'], tab1['u2_cla_pho'].info.format, tab1['u2_cla_pho'].description = u2_cla_pho, '%1.2f', 'u2 from C17 PHOENIX'
+tab1['u1_cla_pho_r'], tab1['u1_cla_pho_r'].info.format, tab1['u1_cla_pho_r'].description = u1_cla_pho_r, '%1.2f', 'u1 from C17 PHOENIX, with r-method'
+tab1['u2_cla_pho_r'], tab1['u2_cla_pho_r'].info.format, tab1['u2_cla_pho_r'].description = u2_cla_pho_r, '%1.2f', 'u2 from C17 PHOENIX, with r-method'
+
 """
-table = tmk.addTable(tab1, 'stellar_ascii_cds.dat', description="Stellar properties")
+table = tmk.addTable(tab1, os.getcwd() + '/Tables/ldc_ascii_cds.dat', description=f"Limb darkening coefficients")
 tmk.writeCDSTables()
 
 templatename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data','cdspyreadme','ReadMe.template')
@@ -101,5 +104,5 @@ with open("ReadMe", "w") as fd:
 	tmk.makeReadMe(out=fd)
 """
 
-tab1.write(os.getcwd() + '/Tables/stellar_ascii_mrt.dat', format='ascii.mrt', overwrite=True, delimiter='\t\t',\
-	 formats={'name':'%s', 'temp':'%4.1f', 'logg':'%1.3f', 'mh':'%1.3f', 'vturb':'%s'})
+tab1.write(os.getcwd() + '/Tables/ldc_ascii_mrt.dat', format='ascii.mrt', overwrite=True, delimiter='\t\t')#,\
+	# formats={'name':'%20s', 'temp':'%4.1f', 'logg':'%1.3f', 'mh':'%1.2f', 'vturb':'%s'})
