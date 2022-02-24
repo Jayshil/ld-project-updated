@@ -80,17 +80,17 @@ tmk.author = "Jayshil A. Patel"
 tmk.authors = "Jayshil A. Patel and Nestor Espinoza"
 
 tab1 = Table()
-tab1['name'], tab1['temp'], tab1['logg'], tab1['mh'], tab1['vturb'] = np.asarray(name1), teff, lg, mh, np.asarray(vt)
+tab1['name'], tab1['temp'], tab1['mh'], tab1['logg'], tab1['vturb'] = np.asarray(name1), teff, mh, lg, np.asarray(vt)
 # Format
-tab1['name'].info.format, tab1['temp'].info.format, tab1['logg'].info.format, tab1['mh'].info.format, tab1['vturb'].info.format = '%s', '%4.1f', '%1.3f', '%1.2f', '%s'
+tab1['name'].info.format, tab1['logg'].info.format, tab1['temp'].info.format, tab1['mh'].info.format, tab1['vturb'].info.format = '%s', '%4.1f', '%1.2f', '%1.3f', '%s'
 # Description
 tab1['name'].description = 'Name of the host star'
 tab1['temp'].description = 'Effective temperature'
-tab1['logg'].description = 'Surface gravity (in log cgs units)'
 tab1['mh'].description = 'Metallicity'
+tab1['logg'].description = 'Surface gravity (in log cgs units)'
 tab1['vturb'].description = 'Microturbulent veocity'
 # Units
-tab1['temp'].units = u.K
+tab1['temp'].unit = u.K
 """
 table = tmk.addTable(tab1, 'stellar_ascii_cds.dat', description="Stellar properties")
 tmk.writeCDSTables()

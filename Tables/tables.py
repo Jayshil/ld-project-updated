@@ -15,9 +15,9 @@ from scipy.optimize import curve_fit as cft
 #path1 = input('Enter the path of this folder: ')
 path1 = '/home/jayshil/Documents/Dissertation/ld-project-updated'
 
-table1 = open(path1 + '/Tables/ldc.dat','w')
+#table1 = open(path1 + '/Tables/ldc.dat','w')
 table2 = open(path1 + '/Tables/stellar.dat','w')
-table3 = open(path1 + '/Tables/planets.dat','w')
+#table3 = open(path1 + '/Tables/planets.dat','w')
 
 #---------------------------------------------------------------------------------------------
 #--------------------------Taking Data from the data file-------------------------------------
