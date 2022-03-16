@@ -30,6 +30,7 @@ path1 = '/home/jayshil/Documents/Dissertation/ld-project-updated'
 name = np.loadtxt(path1 + '/data_new.dat', dtype = str, usecols = 0, unpack = True)
 teff, mh, lg, p, pperr, pnerr, tc, aste, asteperr, astenerr, rprst, rprstperr, rprstnerr, tce1 = \
     np.loadtxt(path1 + '/data_new.dat', usecols = (9, 10, 11, 1, 2, 2, 3, 5, 6, 6, 7, 8, 8, 4), unpack = True)
+t0_ref, ar_ref, rp_ref = np.loadtxt(path1 + '/data_new.dat', usecols=(12,13,14), unpack = True, dtype=str)
 
 #cite = np.loadtxt('citations', usecols=1, dtype=str, unpack=True)
 
@@ -95,6 +96,9 @@ tab1['aste_ue'], tab1['aste_ue'].info.format, tab1['aste_ue'].description = aste
 tab1['aste_le'], tab1['aste_le'].info.format, tab1['aste_le'].description = astenerr, '%.2f', 'Lower 68% credibility band on literature value of a/R*'
 tab1['tc_lit'], tab1['tc_lit'].info.format, tab1['tc_lit'].description = xx1-2458000, '%.3f', 'Transit time (BJD - 2458000) predicted from literature'
 tab1['tc_lit_e'], tab1['tc_lit_e'].info.format, tab1['tc_lit_e'].description = xx11, '%.3f', '1-sigma errors on predicted transit time'
+tab1['rprst_ref'], tab1['rprst_ref'].info.format, tab1['rprst_ref'].description = rp_ref, '%s', 'Reference bibcode for literature value of Rp/R*'
+tab1['aste_ref'], tab1['aste_ref'].info.format, tab1['aste_ref'].description = ar_ref, '%s', 'Reference bibcode for literature value of a/R*'
+tab1['tc_lit_ref'], tab1['tc_lit_ref'].info.format, tab1['tc_lit_ref'].description = t0_ref, '%s', 'Reference bibcode for literature value of transit time'
 
-tab1.write(os.getcwd() + '/Tables/planetary_ascii.dat', format='ascii.mrt', overwrite=True, delimiter='\t\t')
+tab1.write(os.getcwd() + '/Tables/planetary_ascii__1.dat', format='ascii.mrt', overwrite=True, delimiter='\t\t')
 #	 formats={'name':'%20s', 'temp':'%4.1f', 'logg':'%1.3f', 'mh':'%1.2f', 'vturb':'%s'})
