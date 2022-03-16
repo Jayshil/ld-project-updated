@@ -30,6 +30,7 @@ path1 = '/home/jayshil/Documents/Dissertation/ld-project-updated'
 name = np.loadtxt(path1 + '/data_new.dat', dtype = str, usecols = 0, unpack = True)
 teff, mh, lg, p, pperr, pnerr, tc, aste, asteperr, astenerr, rprst, rprstperr, rprstnerr, tce1 = \
     np.loadtxt(path1 + '/data_new.dat', usecols = (9, 10, 11, 1, 2, 2, 3, 5, 6, 6, 7, 8, 8, 4), unpack = True)
+teff_ref, met_ref, logg_ref = np.loadtxt(path1 + '/data_new.dat', usecols=(15,16,17), unpack = True, dtype=str)
 
 #cite = np.loadtxt('citations', usecols=1, dtype=str, unpack=True)
 
@@ -81,14 +82,20 @@ tmk.authors = "Jayshil A. Patel and Nestor Espinoza"
 
 tab1 = Table()
 tab1['name'], tab1['temp'], tab1['mh'], tab1['logg'], tab1['vturb'] = np.asarray(name1), teff, mh, lg, np.asarray(vt)
+tab1['temp_reff'], tab1['mh_ref'], tab1['logg_ref'] = teff_ref, met_ref, logg_ref
 # Format
 tab1['name'].info.format, tab1['logg'].info.format, tab1['temp'].info.format, tab1['mh'].info.format, tab1['vturb'].info.format = '%s', '%4.1f', '%1.2f', '%1.3f', '%s'
+tab1['temp_reff'].info.format, tab1['mh_ref'].info.format, tab1['logg_ref'].info.format = '%s','%s', '%s'
 # Description
 tab1['name'].description = 'Name of the host star'
 tab1['temp'].description = 'Effective temperature'
 tab1['mh'].description = 'Metallicity'
 tab1['logg'].description = 'Surface gravity (in log cgs units)'
 tab1['vturb'].description = 'Microturbulent veocity'
+tab1['temp_reff'].description = 'Reference bibcode to the effecttive temperature'
+tab1['mh_ref'].description = 'Reference bibcode to the metallicity'
+tab1['logg_ref'].description = 'Reference bibcode to the  surface gravity'
+
 # Units
 tab1['temp'].unit = u.K
 """
@@ -101,5 +108,5 @@ with open("ReadMe", "w") as fd:
 	tmk.makeReadMe(out=fd)
 """
 
-tab1.write(os.getcwd() + '/Tables/stellar_ascii_mrt.dat', format='ascii.mrt', overwrite=True, delimiter='\t\t',\
+tab1.write(os.getcwd() + '/Tables/stellar_ascii__1.dat', format='ascii.mrt', overwrite=True, delimiter='\t\t',\
 	 formats={'name':'%s', 'temp':'%4.1f', 'logg':'%1.3f', 'mh':'%1.3f', 'vturb':'%s'})
